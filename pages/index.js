@@ -1,52 +1,65 @@
 import react, { useState } from "react";
 import { useEffect } from "react/cjs/react.production.min";
+import axios from "axios";
 import Image from "next/image";
 
 
 export default function HomePage() {
-    const [pokemon, setPokemon] = react.useState([])
-    const [seachPokemon, setSeachPokemon] = react.useState('raichu')
-    const [pokemonSprites, setPokemonSprites] = react.useState('')
-
-    const pokeAPI = async () => {
-        var requestOptions = {
-            method: 'GET',
-            redirect: 'follow',
-          };
-          
-          await fetch(`https://pokeapi.co/api/v2/pokemon/${seachPokemon}`, requestOptions)
-              .then(response => response.json())
-              .then(result => setPokemon(result))
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-    }
+    const [pokemon, setPokemon] = react.useState('pikachu');
+    const [pokemonData, setPokemonData] = react.useState([])
+    const [pokemonType, setPokemonType] = react.useState('')
     
+    const getPokemon = async () => {
+        const toArray = [];
+        try {
+            const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
+            const res = await axios.get(url)
+            toArray.push(res.data);
+            setPokemonType(res.data.types[0].type.name);
+            setPokemonData(toArray);
+            console.log(res)
+        }   
+        catch (e) {
+            console.log(e)
+        }
+    }
+
+    const handleChange = (e) => {
+        setPokemon(e.target.value.toLowerCase());
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        getPokemon()
+    }
 
     return (
         <div className="bg-darkBluePrimary">
             <main className="max-w-screen-xl mx-auto text-white">
                 <h1 className="text-5xl">Pokedex</h1>
                 <div>
-                    <form
-                        onSubmit={(e) => {
-                            e.preventDefault()
-                            pokeAPI()
-                        }}
-                    >
-                        <input
-                            type={"text"}
-                            className={`p-2 w-2/4 text-black`}
-                            value={seachPokemon}
-                            onChange={(e) => {
-                                setSeachPokemon(e.target.value.toLowerCase())
-                            }}
-                            placeholder="Qual Pokemon"
-                        />
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            <input
+                                className="text-black"
+                                type={'text'}
+                                value={pokemon}
+                                onChange={handleChange}
+                                placeholder="esolha seu pokemon"
+                            />
+                        </label>
                     </form>
-                    <div>
-                        {console.log(pokemon.sprites.front_default)}
-                        {/* {pokemon.sprites.front_default} */}
-                    </div>
+                    {pokemonData.map((data) => {
+                        return (
+                            <div>
+                                <img
+                                    layout="fill"
+                                    key={data.name}
+                                    src={data.sprites.front_default}
+                                />
+                            </div>
+                        )
+                    })}
                 </div>
             </main>
         </div>
