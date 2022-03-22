@@ -2,6 +2,7 @@ import react, { useState } from "react";
 import { useEffect } from "react/cjs/react.production.min";
 import axios from "axios";
 import Image from "next/image";
+import { Table } from "../src/components/table";
 
 
 export default function HomePage() {
@@ -40,24 +41,39 @@ export default function HomePage() {
             <main className="max-w-screen-xl mx-auto text-white">
                 <h1 className="text-5xl">Pokedex</h1>
                 <div>
-                    <form onSubmit={handleSubmit}>
-                        <label>
-                            <input
-                                className="text-black"
-                                type={'text'}
-                                value={pokemon}
-                                onChange={handleChange}
-                                placeholder="esolha seu pokemon"
-                            />
-                        </label>
+                    <form
+                        onSubmit={handleSubmit}
+                        className="w-full flex justify-center p-2 gap-5"
+                    >
+                        <input
+                            className="text-black w-2/4 p-2"
+                            type={'text'}
+                            value={pokemon}
+                            onChange={handleChange}
+                            placeholder="esolha seu pokemon"
+                        />
+                        <button
+                            onSubmit={handleSubmit}
+                            className="w-1/4 bg-yellowPrimary text-darkBluePrimary font-bold"
+                        >
+                            Enviar
+                        </button>
                     </form>
-                    {pokemonData.map((data, index) => {
+                    {pokemonData.map((data) => {
                         return (
-                            <div className="w-2/4">
+                            <div
+                                key={keyIndex}
+                                className="w-2/4 flex mx-auto">
                                 <img
                                     className="w-full"
                                     key={data.id}
                                     src={data.sprites.front_default}
+                                />
+                                <Table
+                                    pokemonType={pokemonType}
+                                    height={`${Math.round(data.height * 10)} cm`}
+                                    weight={`${Math.round(data.weight / 10)} kg`}
+                                    baseExp={data.base_experience}
                                 />
                             </div>
                         )
