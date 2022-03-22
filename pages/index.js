@@ -49,12 +49,13 @@ export default function HomePage() {
                             />
                         </label>
                     </form>
-                    {pokemonData.map((data) => {
+                    {pokemonData.map((data, index) => {
+                        console.log(index)
                         return (
-                            <div>
+                            <div className="w-2/4">
                                 <img
-                                    layout="fill"
-                                    key={data.name}
+                                    className="w-full"
+                                    key={index}
                                     src={data.sprites.front_default}
                                 />
                             </div>
