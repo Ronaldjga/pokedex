@@ -8,6 +8,7 @@ export default function HomePage() {
     const [pokemon, setPokemon] = react.useState('pikachu');
     const [pokemonData, setPokemonData] = react.useState([])
     const [pokemonType, setPokemonType] = react.useState('')
+    const [keyIndex, setKeyIndex] = react.useState(0)
     
     const getPokemon = async () => {
         const toArray = [];
@@ -30,6 +31,7 @@ export default function HomePage() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setKeyIndex(keyIndex + 1)
         getPokemon()
     }
 
@@ -50,12 +52,12 @@ export default function HomePage() {
                         </label>
                     </form>
                     {pokemonData.map((data, index) => {
-                        console.log(index)
+                        console.log(keyIndex)
                         return (
                             <div className="w-2/4">
                                 <img
                                     className="w-full"
-                                    key={index}
+                                    key={keyIndex}
                                     src={data.sprites.front_default}
                                 />
                             </div>
