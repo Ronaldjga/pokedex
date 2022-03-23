@@ -29,6 +29,36 @@ export function Table(props) {
     )
 }
 
+export function TableRandom(props) {
+    
+
+    return (
+        <table className="border-collapse w-3/4 flex justify-center items-center z-10">
+            <thead className="h-full w-full flex flex-col justify-center gap-2">
+                <tr className="text-center text-3xl font-bold">
+                    <th>{props.pokemonName.toUpperCase()}</th>
+                </tr>
+                <TRowType
+                    thValue="Tipo:"
+                    tdValue={props.pokemonType}
+                />
+                <TRow
+                    thValue="Altura"
+                    tdValue={props.height}
+                />
+                <TRow
+                    thValue="Peso"
+                    tdValue={props.weight}
+                />
+                <TRow
+                    thValue="Experiencia Base"
+                    tdValue={props.baseExp}
+                />
+            </thead>
+        </table>
+    )
+}
+
 
 function TRow(props) { 
     return (

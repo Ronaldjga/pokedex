@@ -8,7 +8,7 @@ import { PokemonsBanner } from "../src/components/pokemons";
 
 export default function HomePage() {
     return (
-        <div className="bg-darkBluePrimary flex flex-col gap-5 h-full">
+        <div className="bg-darkBluePrimary flex flex-col gap-5 h-fit min-h-full">
             <FormPokemon />
             <PokemonsBanner/>
         </div>
