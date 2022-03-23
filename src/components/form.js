@@ -1,7 +1,5 @@
 import react, { useState } from "react";
-import { useEffect } from "react/cjs/react.production.min";
 import axios from "axios";
-import Image from "next/image";
 import { Table } from "./table";
 
 export function FormPokemon() {
@@ -36,8 +34,8 @@ export function FormPokemon() {
     }
 
     return (
-        <section className="max-w-screen-xl mx-auto text-white">
-            <div>
+        <section className="w-full text-white">
+            <div className="w-full max-w-screen-xl mx-auto">
                 <form
                     onSubmit={handleSubmit}
                     className="w-full flex justify-center p-2 gap-5"
