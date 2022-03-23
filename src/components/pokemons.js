@@ -23,7 +23,6 @@ export function PokemonsBanner() {
         try {
             const url = `https://pokeapi.co/api/v2/pokemon?limit=300&offset=200`
             const res = await axios.get(url)
-            .then()
             toArray.push(res.data.results)
             setRandomPokemon(...toArray)
             const nome = randomPokemon[randomIndice].name
@@ -43,7 +42,7 @@ export function PokemonsBanner() {
             toArray.push(res.data);
             setPokemonType(res.data.types[0].type.name);
             setPokemonData(toArray);
-            console.log(res)
+            //console.log(res)
         }
         catch (e) {
             console.log(e)
@@ -67,7 +66,7 @@ export function PokemonsBanner() {
                 >
                     <button
                         onSubmit={handleSubmit}
-                        className="w-2/4 py-2 px-5 text-2xl bg-yellowPrimary text-darkBluePrimary font-bold"
+                        className="w-full lg:w-2/4 py-2 px-5 text-2xl bg-yellowPrimary text-darkBluePrimary font-bold"
                     >
                         Pokemon Aleatorio
                     </button>
@@ -76,7 +75,7 @@ export function PokemonsBanner() {
                     return (
                         <div
                             key={keyIndex}
-                            className="w-3/4 flex mx-auto bg-gray-900 relative text-white">
+                            className="w-3/4 flex flex-col sm:flex-row justify-center items-center p-2 mx-auto bg-gray-900 relative text-white">
                             <img
                                 className="w-full z-10"
                                 key={data.id}

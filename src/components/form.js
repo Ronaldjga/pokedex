@@ -58,7 +58,7 @@ export function FormPokemon() {
                     return (
                         <div
                             key={keyIndex}
-                            className="w-3/4 flex mx-auto bg-gray-900 relative">
+                            className="w-3/4 flex flex-col sm:flex-row justify-center items-center p-2 mx-auto bg-gray-900 relative">
                             <img
                                 className="w-full z-10"
                                 key={data.id}
