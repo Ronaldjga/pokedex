@@ -63,9 +63,9 @@ export default function HomePage() {
                         return (
                             <div
                                 key={keyIndex}
-                                className="w-2/4 flex mx-auto">
+                                className="w-3/4 flex mx-auto bg-gray-900 relative">
                                 <img
-                                    className="w-full"
+                                    className="w-full z-10"
                                     key={data.id}
                                     src={data.sprites.front_default}
                                 />
