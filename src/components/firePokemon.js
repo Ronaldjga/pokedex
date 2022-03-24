@@ -13,6 +13,7 @@ export function FireTypes() {
     const pegaNome = []
 
     react.useEffect(() => {
+
         getPokemons()
     }, [])
 
@@ -20,16 +21,45 @@ export function FireTypes() {
         axios.get(`https://pokeapi.co/api/v2/type/fire`)
             .then(res => {
                 toArray.push(res.data.pokemon)
-                toArray.forEach(function (nome, i) {
-                    pegaNome.push(...nome)
-                    setPokemons(pegaNome)
-                    console.log(pokemons)
+                toArray.forEach((pokeObj, i) => {
+                    pokeObj.map((url, i) => {
+                        const toArrayGetPokemon = [];
+                        axios.get(url.pokemon.url)
+                            .then(res => {
+                                toArrayGetPokemon.push(res.data);
+                                setPokemonType(res.data.types[0].type.name);
+                                setPokemonData(toArrayGetPokemon);
+                                console.log(res)
+                            })
+                            .catch(e => {
+                                console.log(e)
+                            })
+                        //console.log(url.pokemon.url) url de cada um
+                    })
                 })
             
             })
             .catch(e => {
                 console.log(e)
             })
+    }
+
+    const getOnePokemon = () => {
+        const toArrayGetPokemon = [];
+        axios.get(`https://pokeapi.co/api/v2/pokemon/ditto`)
+            .then(res => {
+                toArrayGetPokemon.push(res.data);
+                setPokemonType(res.data.types[0].type.name);
+                setPokemonData(toArrayGetPokemon);
+                console.log(res)
+            })
+            .catch(e => {
+            console.log(e)
+            })
+        
+                
+            
+                
     }
 
 
