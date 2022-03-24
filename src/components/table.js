@@ -34,7 +34,7 @@ export function TableRandom(props) {
 
     return (
         <table className="border-collapse w-3/4 flex justify-center items-center z-10">
-            <thead className="h-full w-full flex flex-col justify-center gap-2">
+            <thead className="h-full w-full flex flex-col justify-center items-center gap-3">
                 <tr className="text-center lg:text-3xl font-bold">
                     <th>{props.pokemonName.toUpperCase()}</th>
                 </tr>
