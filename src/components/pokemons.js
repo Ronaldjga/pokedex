@@ -36,12 +36,12 @@ export function PokemonsBanner() {
     }
 
     const getPokemon = (value) => {
-        const toArray = [];
+        const toArrayGetPokemon = [];
         axios.get(`https://pokeapi.co/api/v2/pokemon/${value}`)
             .then(res => {
-                toArray.push(res.data);
+                toArrayGetPokemon.push(res.data);
                 setPokemonType(res.data.types[0].type.name);
-                setPokemonData(toArray);
+                setPokemonData(toArrayGetPokemon);
                 console.log(res)
             })
             .catch(e => {
@@ -53,7 +53,7 @@ export function PokemonsBanner() {
     const handleSubmit = (e) => {
         e.preventDefault()
         setKeyIndex(keyIndex + 1)
-    
+        
         getRandomPokemon()
         //getPokemon(whatPokemon)
     }
