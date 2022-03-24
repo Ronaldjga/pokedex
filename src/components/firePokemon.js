@@ -74,7 +74,7 @@ export function PokemonTypes(props) {
         <section className="w-full">
             <div className="max-w-screen-xl mx-auto px-2 py-5">
                 <div
-                    className="grid grid-cols-3 gap-3"
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:p-0 p-2"
                 >
                     {pokemonData.map((data) => {
                                     return (
@@ -82,7 +82,7 @@ export function PokemonTypes(props) {
                                             key={data.id}
                                             className="w-full flex flex-col justify-center items-center p-4 mx-auto bg-gray-900 relative text-white">
                                             <img
-                                                className="w-2/3 z-10"
+                                                className="w-full sm:w-2/3 z-10"
                                                 key={data.id}
                                                 src={data.sprites.front_default}
                                             />

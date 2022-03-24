@@ -10,6 +10,7 @@ export default function FireType() {
         <div className="bg-darkBluePrimary flex flex-col gap-5 h-fit min-h-full">
             <PokemonTypes
                 type='fire'
+                indiceType='0'
             />
         </div>
     )
