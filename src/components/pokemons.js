@@ -6,10 +6,10 @@ export function PokemonsBanner() {
     const [pokemonData, setPokemonData] = react.useState([])
     const [pokemonType, setPokemonType] = react.useState('')
     const [keyIndex, setKeyIndex] = react.useState(0)
-
-    const [randomPokemon, setRandomPokemon] = react.useState([])
+    
     const [whatPokemon, setWhatPokemon] = react.useState('')
-
+    
+    const toArray = []
 
     react.useEffect(() => {
         getRandomPokemon()
@@ -19,15 +19,30 @@ export function PokemonsBanner() {
 
     const getRandomPokemon = () => {
         const randomIndice = Math.floor(Math.random() * 300);
-        const toArray = []
         axios.get(`https://pokeapi.co/api/v2/pokemon?limit=300&offset=200`)
             .then(res => {
                 toArray.push(res.data.results[randomIndice].name)
-                //setRandomPokemon(res.data.results[randomIndice].name)
                 console.log(toArray)
                 console.log(whatPokemon)
                 setWhatPokemon(toArray.toString())
-                getPokemon(whatPokemon)
+                
+                const toArrayGetPokemon = [];
+                axios.get(`https://pokeapi.co/api/v2/pokemon/${toArray}`)
+                    .then(res => {
+                        toArrayGetPokemon.push(res.data);
+                        setPokemonType(res.data.types[0].type.name);
+                        setPokemonData(toArrayGetPokemon);
+                        console.log(res)
+                    })
+                    .catch(e => {
+                        console.log(e)
+                    })
+
+                // toArray.push(res.data.results[randomIndice].name)
+                // console.log(toArray)
+                // console.log(whatPokemon)
+                // setWhatPokemon(toArray.toString())
+                // getPokemon(whatPokemon)
             })
             .catch(e => {
                 console.log(e)
@@ -35,20 +50,20 @@ export function PokemonsBanner() {
         
     }
 
-    const getPokemon = (value) => {
-        const toArrayGetPokemon = [];
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${value}`)
-            .then(res => {
-                toArrayGetPokemon.push(res.data);
-                setPokemonType(res.data.types[0].type.name);
-                setPokemonData(toArrayGetPokemon);
-                console.log(res)
-            })
-            .catch(e => {
-                console.log(e)
-            })
+    // const getPokemon = (value) => {
+    //     const toArrayGetPokemon = [];
+    //     axios.get(`https://pokeapi.co/api/v2/pokemon/${value}`)
+    //         .then(res => {
+    //             toArrayGetPokemon.push(res.data);
+    //             setPokemonType(res.data.types[0].type.name);
+    //             setPokemonData(toArrayGetPokemon);
+    //             console.log(res)
+    //         })
+    //         .catch(e => {
+    //             console.log(e)
+    //         })
         
-    }
+    // }
 
     const handleSubmit = (e) => {
         e.preventDefault()
