@@ -22,12 +22,12 @@ export function PokemonsBanner() {
         const toArray = []
         axios.get(`https://pokeapi.co/api/v2/pokemon?limit=300&offset=200`)
             .then(res => {
-                toArray.push(res.data.results)
-                setRandomPokemon(...toArray)
-                const nome = randomPokemon[randomIndice].name
-                setWhatPokemon(nome)
-                getPokemon(whatPokemon)
+                toArray.push(res.data.results[randomIndice].name)
+                //setRandomPokemon(res.data.results[randomIndice].name)
+                console.log(toArray)
                 console.log(whatPokemon)
+                setWhatPokemon(toArray.toString())
+                getPokemon(whatPokemon)
             })
             .catch(e => {
                 console.log(e)
