@@ -3,7 +3,7 @@ import { useEffect } from "react/cjs/react.production.min";
 import axios from "axios";
 import { TableRandom } from "./table";
 
-export function FireTypes() {
+export function PokemonTypes(props) {
     const [pokemons, setPokemons] = react.useState([])
     const [pokemonType, setPokemonType] = react.useState('')
     
@@ -22,7 +22,7 @@ export function FireTypes() {
     const getPokemons = async () => {
         if (start === 0) {
             setStart(2)
-            await axios.get(`https://pokeapi.co/api/v2/type/fire`)
+            await axios.get(`https://pokeapi.co/api/v2/type/${props.type}`)
                 .then(res => {
                     toArray.push(res.data.pokemon)
                     toArray.forEach((pokeObj, i) => {
@@ -31,7 +31,7 @@ export function FireTypes() {
                             axios.get(url.pokemon.url)
                                 .then(res => {
                                     pokemonData.push(res.data);
-                                    setPokemonType(res.data.types[0].type.name);
+                                    setPokemonType(res.data.types[props.indiceType].type.name);
                                     //console.log(toArrayGetPokemon)
                                     //console.log(res)
                                 })
