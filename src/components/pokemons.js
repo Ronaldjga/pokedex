@@ -13,40 +13,41 @@ export function PokemonsBanner() {
 
     react.useEffect(() => {
         getRandomPokemon()
-    },[randomPokemon])
+    },[])
 
 
 
-    const getRandomPokemon = async () => {
+    const getRandomPokemon = () => {
         const randomIndice = Math.floor(Math.random() * 300);
         const toArray = []
-        try {
-            const url = `https://pokeapi.co/api/v2/pokemon?limit=300&offset=200`
-            const res = await axios.get(url)
-            toArray.push(res.data.results)
-            setRandomPokemon(...toArray)
-            const nome = randomPokemon[randomIndice].name
-            setWhatPokemon(nome)
-            // console.log(res)
-        }
-        catch (e) {
-            console.log(e)
-        }
+        axios.get(`https://pokeapi.co/api/v2/pokemon?limit=300&offset=200`)
+            .then(res => {
+                toArray.push(res.data.results)
+                setRandomPokemon(...toArray)
+                const nome = randomPokemon[randomIndice].name
+                setWhatPokemon(nome)
+                getPokemon(whatPokemon)
+                console.log(whatPokemon)
+            })
+            .catch(e => {
+                console.log(e)
+            })
+        
     }
 
-    const getPokemon = async (e) => {
+    const getPokemon = (value) => {
         const toArray = [];
-        try {
-            const url = `https://pokeapi.co/api/v2/pokemon/${e}`
-            const res = await axios.get(url)
-            toArray.push(res.data);
-            setPokemonType(res.data.types[0].type.name);
-            setPokemonData(toArray);
-            //console.log(res)
-        }
-        catch (e) {
-            console.log(e)
-        }
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${value}`)
+            .then(res => {
+                toArray.push(res.data);
+                setPokemonType(res.data.types[0].type.name);
+                setPokemonData(toArray);
+                console.log(res)
+            })
+            .catch(e => {
+                console.log(e)
+            })
+        
     }
 
     const handleSubmit = (e) => {
@@ -54,7 +55,7 @@ export function PokemonsBanner() {
         setKeyIndex(keyIndex + 1)
     
         getRandomPokemon()
-        getPokemon(whatPokemon)
+        //getPokemon(whatPokemon)
     }
 
     return (

@@ -8,19 +8,17 @@ export function FormPokemon() {
     const [pokemonType, setPokemonType] = react.useState('')
     const [keyIndex, setKeyIndex] = react.useState(0)
 
-    const getPokemon = async () => {
+    const getPokemon = () => {
         const toArray = [];
-        try {
-            const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
-            const res = await axios.get(url)
-            toArray.push(res.data);
-            setPokemonType(res.data.types[0].type.name);
-            setPokemonData(toArray);
-            console.log(res)
-        }
-        catch (e) {
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+            .then(res => {
+                toArray.push(res.data);
+                setPokemonType(res.data.types[0].type.name);
+                setPokemonData(toArray);
+                console.log(res)
+            }).catch(e => {
             console.log(e)
-        }
+        })
     }
 
     const handleChange = (e) => {
