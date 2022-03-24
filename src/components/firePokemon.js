@@ -1,11 +1,16 @@
 import react, { useState } from "react";
 import { useEffect } from "react/cjs/react.production.min";
 import axios from "axios";
+import { TableRandom } from "./table";
 
 export function FireTypes() {
     const [pokemons, setPokemons] = react.useState([])
     const [pokemonType, setPokemonType] = react.useState('')
+    
+    const [pokemonData, setPokemonData] = react.useState([])
+    
     const toArray = []
+    const pegaNome = []
 
     react.useEffect(() => {
         getPokemons()
@@ -16,21 +21,11 @@ export function FireTypes() {
             .then(res => {
                 toArray.push(res.data.pokemon)
                 toArray.forEach(function (nome, i) {
-                    
-                    nome.map((a, e) => {
-                        setPokemons(a.pokemon.name)
-                        
-                    });
+                    pegaNome.push(...nome)
+                    setPokemons(pegaNome)
+                    console.log(pokemons)
                 })
-
-
-
-
-
-
-
-                
-                //console.log(toArray)
+            
             })
             .catch(e => {
                 console.log(e)
@@ -40,32 +35,42 @@ export function FireTypes() {
 
 
     return (
-        <>
-            {console.log(pokemons)}
-        </>
-        // <section className="w-full">
-        //     <div className="max-w-screen-xl mx-auto px-2 py-5">
-        //         {pokemons.map((data) => {
-        //             return (
-        //                 <div
-        //                     key={keyIndex}
-        //                     className="w-3/4 flex flex-col sm:flex-row justify-center items-center p-2 mx-auto bg-gray-900 relative text-white">
-        //                     <img
-        //                         className="w-full z-10"
-        //                         key={data.id}
-        //                         src={data.sprites.front_default}
-        //                     />
-        //                     <TableRandom
-        //                         pokemonName={data.name}
-        //                         pokemonType={pokemonType}
-        //                         height={`${Math.round(data.height * 10)} cm`}
-        //                         weight={`${Math.round(data.weight / 10)} kg`}
-        //                         baseExp={data.base_experience}
-        //                     />
-        //                 </div>
-        //             )
-        //         })}
-        //     </div>
-        // </section>
+        <section className="w-full">
+            <div className="max-w-screen-xl mx-auto px-2 py-5">
+                {}
+                <div
+                    className="grid grid-cols-3"
+                >
+                    {/* {pokemonData.forEach((nomePokemon, indice) => {
+                        const PegaPfv = nomePokemon
+                        return (
+                            <div>
+                                {pokemonData.map((data) => {
+                                    return (
+                                        <div
+                                            key={data.id}
+                                            className="w-full flex flex-col justify-center items-center p-4 mx-auto bg-gray-900 relative text-white">
+                                            <img
+                                                className="w-2/3 z-10"
+                                                key={data.id}
+                                                src={data.sprites.front_default}
+                                            />
+                                            <TableRandom
+                                                pokemonName={data.name}
+                                                pokemonType={pokemonType}
+                                                height={`${Math.round(data.height * 10)} cm`}
+                                                weight={`${Math.round(data.weight / 10)} kg`}
+                                                baseExp={data.base_experience}
+                                            />
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        )    
+                        
+                    })} */}
+                </div>
+            </div>
+        </section>
     )
 }
