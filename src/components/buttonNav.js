@@ -1,13 +1,29 @@
 import react from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
+import pokemonLogo from "../components/img/pokemonLogo.svg"
+import { useEffect } from "react/cjs/react.production.min";
 
 export function NavHeader() {
+    const [menuButton, setMenuButton] = react.useState(false)
+    const [listStatus, setListStatus] = react.useState('hidden')
+    const [buttonValue, setButtonValue] = react.useState('MENU')
+    const [menuStyle, setMenuStyle] = react.useState('')
+
+
     return (
         <>
             <header
-                className="h-[100px] flex justify-center items-center bg-gray-700">
-                <nav>
-                    <ul className="flex justify-center items-center gap-2 text-white">
+                className={`${listStatus} fixed z-20 h-screen md:relative md:w-full md:h-fit md:flex flex-col gap-5 justify-center md:justify-between items-center bg-gray-900 p-5`}>
+                <div className="w-3/4 md:w-1/2 h-[120px] relative">
+                    <Image
+                        layout="fill"
+                        src={pokemonLogo}
+                        alt='pokemon Logo'
+                    />
+                </div>
+                <nav className="w-5/6 md:w-3/6">
+                    <ul className={`flex flex-wrap justify-center items-center gap-2 text-white`}>
                         <li>
                             <ButtonNav
                                 href="fireType"
@@ -119,6 +135,15 @@ export function NavHeader() {
                     </ul>
                 </nav>
             </header>
+                <MenuMobile
+                    className={`md:hidden`}
+                    setListStatus={setListStatus}
+                    listStatus={listStatus}
+                    setMenuButton={setMenuButton}
+                    menuButton={menuButton}
+                    setButtonValue={setButtonValue}
+                    buttonValue={buttonValue}
+                />
             
         </>
     )
@@ -178,5 +203,40 @@ export function ButtonNav(props) {
         >
             {props.value}
         </button>
+    )
+}
+
+
+export function MenuMobile(props) {
+
+    return (
+        <div className="absolute top-0 left-0 z-50">
+            <button
+                className={`${props.className} bg-yellowPrimary text-SoftWhite border-2 border-SoftWhite py-3 px-5 fixed z-50 right-5 top-5 font-bold
+            
+                sm:right-9 sm:top-9
+                `}
+                onClick={(e) => {
+                    e.preventDefault
+                    if (props.menuButton === false) {
+                        props.setListStatus('')
+                        props.setListStatus('flex')
+                        props.setMenuButton(true)
+                        props.setButtonValue('')
+                        props.setButtonValue('X')
+                    } else {
+                        props.setListStatus('')
+                        props.setListStatus('hidden')
+                        props.setMenuButton(false)
+                        props.setButtonValue('')
+                        props.setButtonValue('MENU')
+                    }
+                }}
+            >
+                {props.buttonValue}
+            </button>
+
+            
+        </div>
     )
 }
