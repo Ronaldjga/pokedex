@@ -2,33 +2,6 @@ import react, { useState } from "react";
 
 const trStyle= `w-full p-2 flex`
 
-export function Table(props) {
-    
-
-    return (
-        <table className="border-collapse w-3/4 flex justify-center items-center z-10">
-            <thead className="h-full w-full flex flex-col justify-center gap-2">
-                <TRowType
-                    thValue="Tipo:"
-                    tdValue={props.pokemonType}
-                />
-                <TRow
-                    thValue="Altura"
-                    tdValue={props.height}
-                />
-                <TRow
-                    thValue="Peso"
-                    tdValue={props.weight}
-                />
-                <TRow
-                    thValue="Experiencia Base"
-                    tdValue={props.baseExp}
-                />
-            </thead>
-        </table>
-    )
-}
-
 export function TableRandom(props) {
     
 
@@ -86,8 +59,6 @@ function TRow(props) {
 function TRowType(props) {
     const [typeColor, setTypeColor] = react.useState('')
     const [displayType, setDisplayType] = react.useState('')
-    
-    const verificaTwo = props.tdValueTwo
 
     return (
         <>
@@ -100,9 +71,10 @@ function TRowType(props) {
                     {props.thValue}
                 </th>
                 <td
+                    
                     className={`text-center font-semibold w-2/4 flex justify-center gap-2 `}
                 >
-                    {props.tdTypes.map((types) => {
+                    {props.tdTypes.map((types, i) => {
                         const colorType = () => {
                             if ( types.type.name === 'fire') {
                                 return 'bg-red-500'
@@ -145,10 +117,10 @@ function TRowType(props) {
 
                         return (
                             <span
+                                key={i}
                                 className={`${colorType()} w-full px-2 py-1 rounded-lg`}
                             >
                                 {types.type.name}
-                                {console.log(types.type.name)}
                             </span>
                         )
                     })}

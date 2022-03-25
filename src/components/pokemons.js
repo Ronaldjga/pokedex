@@ -1,6 +1,6 @@
 import react, { useState } from "react";
 import axios from "axios";
-import { Table, TableRandom } from "./table";
+import { TableRandom } from "./table";
 
 export function PokemonsBanner() {
     const [pokemonData, setPokemonData] = react.useState([])
