@@ -32,14 +32,18 @@ export function FormPokemon() {
     }
 
     return (
-        <section className="w-full  text-white">
+        <section className="w-full  text-white p-5">
+            <h2
+                className="max-w-screen-xl text-center sm:text-left mx-auto text-4xl font-black font-h2Title p-5 text-yellowPrimary">
+                Pesquise Pokemons
+            </h2>
             <div className="w-full max-w-screen-xl mx-auto">
                 <form
                     onSubmit={handleSubmit}
-                    className="w-full flex justify-center p-2 gap-5"
+                    className="w-full flex flex-col md:flex-row items-center justify-center p-2 gap-5 md:mb-10"
                 >
                     <input
-                        className="text-black w-2/4 p-2"
+                        className="text-black w-full md:w-2/3 p-2"
                         type={'text'}
                         value={pokemon}
                         onChange={handleChange}
@@ -47,7 +51,7 @@ export function FormPokemon() {
                     />
                     <button
                         onSubmit={handleSubmit}
-                        className="w-1/4 bg-yellowPrimary text-darkBluePrimary font-bold"
+                        className="w-full md:w-1/4 p-2 bg-yellowPrimary border-2 border-pink-900 text-darkBluePrimary font-bold hover:bg-pink-900 hover:text-white hover:border-yellowPrimary"
                     >
                         Enviar
                     </button>
@@ -56,7 +60,7 @@ export function FormPokemon() {
                     return (
                         <div
                             key={keyIndex}
-                            className="w-3/4 flex flex-col sm:flex-row justify-center items-center p-2 mx-auto bg-gray-900 relative">
+                            className="w-full md:w-5/6 flex flex-col sm:flex-row justify-center items-center p-2 lg:p-5 mx-auto bg-gray-900 relative border-2 rounded-md border-pink-900 ">
                             <img
                                 className="w-full z-10"
                                 key={data.id}

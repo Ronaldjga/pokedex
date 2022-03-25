@@ -1,17 +1,19 @@
 import react, { useState } from "react";
 import { useEffect } from "react/cjs/react.production.min";
 import Image from "next/image";
-import { PokemonTypes } from "../src/components/firePokemon";
+import { PokemonTypes } from "../src/components/PokemonsType";
+import { BackHome } from "../src/components/formReport";
 
 
 
-export default function FireType() {
+export default function SteelType() {
     return (
         <div className="bg-darkBluePrimary flex flex-col gap-5 h-fit min-h-full">
             <PokemonTypes
                 type='steel'
                 indiceType='0'
             />
+            <BackHome/>
         </div>
     )
 }

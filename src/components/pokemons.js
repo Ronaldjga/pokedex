@@ -57,24 +57,28 @@ export function PokemonsBanner() {
     }
 
     return (
-        <section className="w-full">
-            <div className="max-w-screen-xl mx-auto px-2 py-5">
+        <section className="w-full p-5">
+            <h2
+                className="max-w-screen-xl text-center sm:text-left mx-auto text-4xl font-black font-h2Title p-5 text-yellowPrimary">
+                Pesquise Aleatorio
+            </h2>
+            <div className="max-w-screen-xl mx-auto px-2">
             <form
                     onSubmit={handleSubmit}
                     className="w-full flex justify-center p-2 gap-5"
                 >
                     <button
                         onSubmit={handleSubmit}
-                        className="w-full lg:w-2/4 py-2 px-5 text-2xl bg-yellowPrimary text-darkBluePrimary font-bold"
+                        className="w-full lg:w-2/4 py-2 my-5 px-5 text-2xl bg-yellowPrimary border-2 border-pink-900 hover:border-yellowPrimary hover:bg-pink-900 hover:text-white text-darkBluePrimary font-bold"
                     >
-                        Pokemon Aleatorio
+                        Gerar
                     </button>
                 </form>
                 {pokemonData.map((data) => {
                     return (
                         <div
                             key={keyIndex}
-                            className="w-3/4 flex flex-col sm:flex-row justify-center items-center p-2 mx-auto bg-gray-900 relative text-white">
+                            className="w-full md:w-5/6 flex flex-col sm:flex-row justify-center items-center p-2 mx-auto bg-gray-900 relative text-white border-2 rounded-md border-pink-900">
                             <img
                                 className="w-full z-10"
                                 key={data.id}
