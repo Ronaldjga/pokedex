@@ -47,7 +47,7 @@ export function ReportButton() {
                 e.preventDefault
                 routes.push(`/report`)
             }}
-            className="text-darkBluePrimary bg-yellowPrimary py-2 px-5 font-bold fixed bottom-5 right-5 hover:border-2 hover:border-white hover:bg-red-600 hover:text-white"
+            className="text-darkBluePrimary bg-yellowPrimary py-2 px-5 font-bold fixed bottom-5 right-5 hover:border-2 hover:border-white hover:bg-red-600 hover:text-white z-30"
         >
             Reportar Erro
         </button>
@@ -62,7 +62,7 @@ export function BackHome() {
                 e.preventDefault
                 routes.push(`/`)
             }}
-            className="text-darkBluePrimary border-2 border-pink-900 bg-yellowPrimary py-2 px-5 font-bold fixed top-5 left-5 hover:bg-pink-900 hover:text-white hover:border-yellowPrimary"
+            className="text-darkBluePrimary border-2 border-pink-900 bg-yellowPrimary py-2 px-5 font-bold fixed top-5 left-5 hover:bg-pink-900 hover:text-white hover:border-yellowPrimary z-30"
         >
             Home
         </button>
