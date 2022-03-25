@@ -12,7 +12,7 @@ module.exports = {
         grayPimary: "#022026",
         bluePrimary: "#4B9EBF",
         bluishGray: "#405F73",
-        ghostType: "#5C3CDC",
+        ghostType: "#260273",
         fightType: "#AD0303",
         fairyType: "#E75D92",
         steelType: "#9DA0C4",

@@ -134,7 +134,7 @@ export function ButtonNav(props) {
         } else if (props.value === 'Electric') {
             return 'border-electricType hover:text-electricType'
         } else if (props.value === 'Ghost') {
-            return 'border-ghostType hover:text-purple-500'
+            return 'border-purple-800 hover:text-purple-500'
         } else if (props.value === 'Fight') {
             return 'border-fightType hover:text-red-700'
         } else if (props.value === 'Fairy') {
@@ -154,7 +154,7 @@ export function ButtonNav(props) {
         } else if (props.value === 'Water') {
             return 'border-waterType hover:text-waterType'
         } else if (props.value === 'Poison') {
-            return 'border-poisonType hover:text-purple-400'
+            return 'border-purple-400 hover:text-purple-400'
         } else if (props.value === 'Normal') {
             return 'border-normalType hover:text-normalType'
         } else if (props.value === 'Ice') {
@@ -164,7 +164,7 @@ export function ButtonNav(props) {
         } else if (props.value === 'Flying') {
             return 'border-flyingType hover:text-flyingType'
         } else if (props.value === 'Dark') {
-            return 'border-darkType hover:text-gray-400'
+            return 'border-slate-500 hover:text-gray-400'
         }
     }
 
