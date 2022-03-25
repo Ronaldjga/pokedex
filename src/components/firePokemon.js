@@ -74,13 +74,13 @@ export function PokemonTypes(props) {
         <section className="w-full">
             <div className="max-w-screen-xl mx-auto px-2 py-5">
                 <div
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:p-0 p-2"
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-16 sm:p-0 p-2"
                 >
                     {pokemonData.map((data) => {
                                     return (
                                         <div
                                             key={data.id}
-                                            className="w-full flex flex-col justify-center items-center p-4 mx-auto bg-gray-900 relative text-white">
+                                            className="w-full flex flex-col justify-center items-center p-4 mx-auto bg-gray-900 relative text-white border-b-2 border-l-2 border-r-2 rounded-xl border-yellowPrimary ">
                                             <img
                                                 className="w-full sm:w-2/3 z-10"
                                                 key={data.id}

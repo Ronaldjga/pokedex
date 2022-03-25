@@ -1,12 +1,12 @@
 import react, { useState } from "react";
 
-const trStyle= `w-full p-2 flex`
+const trStyle= `w-full p-2 pb-5 flex gap-x-10 border-b-2 border-l-2 border-r-2 rounded-md border-pink-900 hover:border-yellowPrimary`
 
 export function TableRandom(props) {
     
 
     return (
-        <table className="border-collapse w-3/4 flex justify-center items-center z-10">
+        <table className="border-collapse w-full flex justify-center items-center z-10">
             <thead className="h-full w-full flex flex-col justify-center items-center gap-3">
                 <tr className="text-center lg:text-3xl font-bold">
                     <th>{props.pokemonName.toUpperCase()}</th>
@@ -72,7 +72,7 @@ function TRowType(props) {
                 </th>
                 <td
                     
-                    className={`text-center font-semibold w-2/4 flex justify-center gap-2 `}
+                    className={`text-center font-semibold w-2/4 flex flex-col md:flex-row justify-center gap-2 `}
                 >
                     {props.tdTypes.map((types, i) => {
                         const colorType = () => {
@@ -118,7 +118,7 @@ function TRowType(props) {
                         return (
                             <span
                                 key={i}
-                                className={`${colorType()} w-full px-2 py-1 rounded-lg`}
+                                className={`${colorType()} px-2 py-1 rounded-lg`}
                             >
                                 {types.type.name}
                             </span>

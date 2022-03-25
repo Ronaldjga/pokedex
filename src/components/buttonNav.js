@@ -1,6 +1,20 @@
 import react from "react";
 import { useRouter } from "next/router";
 
+export function NavHeader() {
+    return (
+        <>
+            <header>
+                <nav>
+                    
+                </nav>
+            </header>
+            
+        </>
+    )
+}
+
+
 export function ButtonNav(props) {
     const router = useRouter()
 
