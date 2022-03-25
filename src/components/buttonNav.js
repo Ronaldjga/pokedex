@@ -5,9 +5,9 @@ export function NavHeader() {
     return (
         <>
             <header
-                className="h-[100px] bg-slate-800">
+                className="h-[100px] flex justify-center items-center bg-gray-700">
                 <nav>
-                    <ul className="flex gap-2">
+                    <ul className="flex justify-center items-center gap-2 text-white">
                         <li>
                             <ButtonNav
                                 href="fireType"
@@ -130,47 +130,47 @@ export function ButtonNav(props) {
 
     const colorType = () => {
         if ( props.value === 'Fire') {
-            return 'bg-red-500'
+            return 'border-red-500 hover:text-red-500'
         } else if (props.value === 'Electric') {
-            return 'bg-electricType text-darkBluePrimary'
+            return 'border-electricType hover:text-electricType'
         } else if (props.value === 'Ghost') {
-            return 'bg-ghostType'
+            return 'border-ghostType hover:text-purple-500'
         } else if (props.value === 'Fight') {
-            return 'bg-fightType'
+            return 'border-fightType hover:text-red-700'
         } else if (props.value === 'Fairy') {
-            return 'bg-fairyType'
+            return 'border-fairyType hover:text-fairyType'
         } else if (props.value === 'Steel') {
-            return 'bg-steelType'
+            return 'border-steelType hover:text-steelType'
         } else if (props.value === 'Bug') {
-            return 'bg-bugType'
+            return 'border-bugType hover:text-bugType'
         } else if (props.value === 'Dragon') {
-            return 'bg-dragonType'
+            return 'border-dragonType hover:text-dragonType'
         } else if (props.value === 'Grass') {
-            return 'bg-grassType text-darkBluePrimary'
+            return 'border-grassType hover:text-grassType'
         } else if (props.value === 'Psychic') {
-            return 'bg-psychicType'
+            return 'border-psychicType hover:text-psychicType'
         } else if (props.value === 'Rock') {
-            return 'bg-rockType'
+            return 'border-rockType hover:text-rockType'
         } else if (props.value === 'Water') {
-            return 'bg-waterType'
+            return 'border-waterType hover:text-waterType'
         } else if (props.value === 'Poison') {
-            return 'bg-poisonType'
+            return 'border-poisonType hover:text-purple-400'
         } else if (props.value === 'Normal') {
-            return 'bg-normalType'
+            return 'border-normalType hover:text-normalType'
         } else if (props.value === 'Ice') {
-            return 'bg-iceType text-darkBluePrimary'
+            return 'border-iceType hover:text-iceType'
         } else if (props.value === 'Ground') {
-            return 'bg-groundType'
+            return 'border-groundType hover:text-groundType'
         } else if (props.value === 'Flying') {
-            return 'bg-flyingType'
+            return 'border-flyingType hover:text-flyingType'
         } else if (props.value === 'Dark') {
-            return 'bg-darkType'
+            return 'border-darkType hover:text-gray-400'
         }
     }
 
     return (
         <button
-            className={`${colorType()} py-1 rounded-xl px-5 border border-transparent hover:border-white`}
+            className={`${colorType()} bg-gray-900 py-1 rounded-xl px-5 border-2 hover:font-bold hover:border-white`}
             onClick={(e) => {
                 e.preventDefault
                 router.push(`/${props.href}`)
