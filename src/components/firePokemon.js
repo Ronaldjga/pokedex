@@ -5,7 +5,7 @@ import { TableRandom } from "./table";
 
 export function PokemonTypes(props) {
     const [pokemons, setPokemons] = react.useState([])
-    const [pokemonType, setPokemonType] = react.useState('')
+    const [pokemonTypeOne, setPokemonTypeOne] = react.useState('')
     
     const [pokemonData, setPokemonData] = react.useState([])
     const [start, setStart] = react.useState(0)
@@ -31,7 +31,7 @@ export function PokemonTypes(props) {
                             axios.get(url.pokemon.url)
                                 .then(res => {
                                     pokemonData.push(res.data);
-                                    setPokemonType(res.data.types[props.indiceType].type.name);
+                                    setPokemonTypeOne(res.data.types[0].type.name);
                                     //console.log(toArrayGetPokemon)
                                     //console.log(res)
                                 })
@@ -88,13 +88,15 @@ export function PokemonTypes(props) {
                                             />
                                             <TableRandom
                                                 pokemonName={data.name}
-                                                pokemonType={pokemonType}
+                                                pokemonTypes={data.types}
+                                                pokemonTypeOne={data.types[0].type.name}
+                                                pokemonTypeTwo={data.types.length > 1 ? data.types[1].type.name : ''}
                                                 height={`${Math.round(data.height * 10)} cm`}
                                                 weight={`${Math.round(data.weight / 10)} kg`}
                                                 baseExp={data.base_experience}
                                             />
                                         </div>
-                                    )
+                        )
                                 })}
                 </div>
             </div>

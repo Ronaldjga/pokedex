@@ -40,7 +40,9 @@ export function TableRandom(props) {
                 </tr>
                 <TRowType
                     thValue="Tipo:"
-                    tdValue={props.pokemonType}
+                    tdTypes={props.pokemonTypes}
+                    tdValueOne={props.pokemonTypeOne}
+                    tdValueTwo={props.pokemonTypeTwo}
                 />
                 <TRow
                     thValue="Altura"
@@ -83,47 +85,9 @@ function TRow(props) {
 
 function TRowType(props) {
     const [typeColor, setTypeColor] = react.useState('')
+    const [displayType, setDisplayType] = react.useState('')
     
-
-    const colorType = () => {
-        if ( props.tdValue === 'fire') {
-            return 'bg-red-500'
-        } else if (props.tdValue === 'electric') {
-            return 'bg-electricType text-darkBluePrimary'
-        } else if (props.tdValue === 'ghost') {
-            return 'bg-ghostType'
-        } else if (props.tdValue === 'fighting') {
-            return 'bg-fightType'
-        } else if (props.tdValue === 'fairy') {
-            return 'bg-fairyType'
-        } else if (props.tdValue === 'steel') {
-            return 'bg-steelType'
-        } else if (props.tdValue === 'bug') {
-            return 'bg-bugType'
-        } else if (props.tdValue === 'dragon') {
-            return 'bg-dragonType'
-        } else if (props.tdValue === 'grass') {
-            return 'bg-grassType text-darkBluePrimary'
-        } else if (props.tdValue === 'psychic') {
-            return 'bg-psychicType'
-        } else if (props.tdValue === 'rock') {
-            return 'bg-rockType'
-        } else if (props.tdValue === 'water') {
-            return 'bg-waterType'
-        } else if (props.tdValue === 'poison') {
-            return 'bg-poisonType'
-        } else if (props.tdValue === 'normal') {
-            return 'bg-normalType'
-        } else if (props.tdValue === 'ice') {
-            return 'bg-iceType text-darkBluePrimary'
-        } else if (props.tdValue === 'ground') {
-            return 'bg-groundType'
-        } else if (props.tdValue === 'flying') {
-            return 'bg-flyingType'
-        } else if (props.tdValue === 'dark') {
-            return 'bg-darkType'
-        }
-    }
+    const verificaTwo = props.tdValueTwo
 
     return (
         <>
@@ -136,13 +100,58 @@ function TRowType(props) {
                     {props.thValue}
                 </th>
                 <td
-                    className={`text-center font-semibold w-2/4 flex justify-center `}
+                    className={`text-center font-semibold w-2/4 flex justify-center gap-2 `}
                 >
-                    <span
-                        className={`${colorType()} w-full px-2 py-1 rounded-lg`}
-                    >
-                        {props.tdValue.toUpperCase()}
-                    </span>
+                    {props.tdTypes.map((types) => {
+                        const colorType = () => {
+                            if ( types.type.name === 'fire') {
+                                return 'bg-red-500'
+                            } else if (types.type.name === 'electric') {
+                                return 'bg-electricType text-darkBluePrimary'
+                            } else if (types.type.name === 'ghost') {
+                                return 'bg-ghostType'
+                            } else if (types.type.name === 'fighting') {
+                                return 'bg-fightType'
+                            } else if (types.type.name === 'fairy') {
+                                return 'bg-fairyType'
+                            } else if (types.type.name === 'steel') {
+                                return 'bg-steelType'
+                            } else if (types.type.name === 'bug') {
+                                return 'bg-bugType'
+                            } else if (types.type.name === 'dragon') {
+                                return 'bg-dragonType'
+                            } else if (types.type.name === 'grass') {
+                                return 'bg-grassType text-darkBluePrimary'
+                            } else if (types.type.name === 'psychic') {
+                                return 'bg-psychicType'
+                            } else if (types.type.name === 'rock') {
+                                return 'bg-rockType'
+                            } else if (types.type.name === 'water') {
+                                return 'bg-waterType'
+                            } else if (types.type.name === 'poison') {
+                                return 'bg-poisonType'
+                            } else if (types.type.name === 'normal') {
+                                return 'bg-normalType'
+                            } else if (types.type.name === 'ice') {
+                                return 'bg-iceType text-darkBluePrimary'
+                            } else if (types.type.name === 'ground') {
+                                return 'bg-groundType'
+                            } else if (types.type.name === 'flying') {
+                                return 'bg-flyingType'
+                            } else if (types.type.name === 'dark') {
+                                return 'bg-darkType'
+                            }
+                        }
+
+                        return (
+                            <span
+                                className={`${colorType()} w-full px-2 py-1 rounded-lg`}
+                            >
+                                {types.type.name}
+                                {console.log(types.type.name)}
+                            </span>
+                        )
+                    })}
                 </td>
             </tr>
         </>
