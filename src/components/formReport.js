@@ -6,7 +6,7 @@ export function FormReport() {
         <form
             action=""
             method="POST"
-            className=" lg:w-2/4 bg-gray-900 flex flex-col gap-5 p-5 border-2 border-yellowPrimary"
+            className="w-full lg:w-2/4 bg-gray-900 flex flex-col gap-5 p-5 border-2 border-yellowPrimary"
         >
             <input
                 name="Nome"
