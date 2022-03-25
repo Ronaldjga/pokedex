@@ -3,7 +3,7 @@ import axios from "axios";
 import { Table, TableRandom } from "./table";
 
 export function FormPokemon() {
-    const [pokemon, setPokemon] = react.useState('pikachu');
+    const [pokemon, setPokemon] = react.useState('');
     const [pokemonData, setPokemonData] = react.useState([])
     const [pokemonType, setPokemonType] = react.useState('')
     const [keyIndex, setKeyIndex] = react.useState(0)
