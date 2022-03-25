@@ -22,7 +22,7 @@ export function Introduction() {
             </div>
             <p
                 className="text-white text-center md:w-3/4 text-xl">
-                Este site e desenvolvido exclusivamente para pratica de habilidade e tecnologias de desenvolvimento web. Sendo assim não possuimos vinculo com a nitendo, ou seja, não possuimos fins lucrativos.
+                Este site e desenvolvido exclusivamente para prática de habilidade e tecnologias de desenvolvimento web. Sendo assim não possuímos vinculo com a nitendo, ou seja, não possuímos fins lucrativos.
             </p>
         </main>
     )

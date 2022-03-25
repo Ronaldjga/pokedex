@@ -11,7 +11,7 @@ export default function Report() {
                 >
                     <h1 className="text-white font-h1Title text-center text-5xl font-bold p-5">Reporte</h1>
                     <p className="max-w-screen-lg mx-auto text-white text-center">
-                        Esse site sobre pokemon foi desenvolvivo exclusivamente para reforçar conhecimentos e habilidades de desenvolvimento web, sendo assim, não tem fins lucrativos. Entretanto, você encontrou um erro? Reporte para que haja correção.
+                        Esse site sobre pokemon foi desenvolvido exclusivamente para reforçar conhecimentos e habilidades de desenvolvimento web, sendo assim, não tem fins lucrativos. Entretanto, você encontrou um erro? Reporte para que haja correção.
                     </p>
                     <FormReport></FormReport>
                 </div>
