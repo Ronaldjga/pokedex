@@ -32,7 +32,7 @@ export function FormPokemon() {
     }
 
     return (
-        <section className="w-full text-white">
+        <section className="w-full  text-white">
             <div className="w-full max-w-screen-xl mx-auto">
                 <form
                     onSubmit={handleSubmit}

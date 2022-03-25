@@ -4,6 +4,9 @@ import { useRouter } from "next/router";
 import pokemonLogo from "../components/img/pokemonLogo.svg"
 import { useEffect } from "react/cjs/react.production.min";
 
+import openPokeboll from '../components/img/openPokeboll.svg'
+import closePokeboll from '../components/img/closePokeboll.svg'
+
 export function NavHeader() {
     const [menuButton, setMenuButton] = react.useState(false)
     const [listStatus, setListStatus] = react.useState('hidden')
@@ -208,11 +211,13 @@ export function ButtonNav(props) {
 
 
 export function MenuMobile(props) {
+    const handleMenu = props.menuButton === false ? closePokeboll : openPokeboll
+
 
     return (
         <div className="absolute top-0 left-0 z-50">
             <button
-                className={`${props.className} bg-yellowPrimary text-SoftWhite border-2 border-SoftWhite py-3 px-5 fixed z-50 right-5 top-5 font-bold
+                className={`${props.className} bg-yellowPrimary fixed z-50 right-5 top-5 font-bold
             
                 sm:right-9 sm:top-9
                 `}
@@ -222,18 +227,17 @@ export function MenuMobile(props) {
                         props.setListStatus('')
                         props.setListStatus('flex')
                         props.setMenuButton(true)
-                        props.setButtonValue('')
-                        props.setButtonValue('X')
+
                     } else {
                         props.setListStatus('')
                         props.setListStatus('hidden')
                         props.setMenuButton(false)
-                        props.setButtonValue('')
-                        props.setButtonValue('MENU')
                     }
                 }}
             >
-                {props.buttonValue}
+                <Image
+                    src={handleMenu}
+                />
             </button>
 
             
