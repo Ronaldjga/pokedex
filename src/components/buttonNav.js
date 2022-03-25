@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import pokemonLogo from "../components/img/pokemonLogo.svg"
 import { useEffect } from "react/cjs/react.production.min";
 
-import openPokeboll from './img/openPokeboll.svg'
+import openPokeboll from './img/pokebolaAberta.svg'
 import closePokeboll from './img/closePokeboll.svg'
 
 export function NavHeader() {
