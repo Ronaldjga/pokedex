@@ -65,6 +65,7 @@ export function FormPokemon() {
                                 className="w-full z-10"
                                 key={data.id}
                                 src={data.sprites.front_default}
+                                alt={data.id}
                             />
                             <TableRandom
                                 pokemonName={data.name}

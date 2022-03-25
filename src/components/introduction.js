@@ -10,12 +10,14 @@ export function Introduction() {
                 <Image
                     layout="responsive"
                     src={pokemonLogo}
+                    alt='pokemon logo'
                 />
             </div>
             <div className="w-[200px] md:w-[300px] relative">
                 <Image
                     layout="responsive"
                     src={pikachu}
+                    alt='pikachu'
                 />
             </div>
             <p

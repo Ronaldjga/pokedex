@@ -237,6 +237,7 @@ export function MenuMobile(props) {
             >
                 <Image layout="fill"
                     src={handleMenu}
+                    alt='menu'
                 />
             </button>
 

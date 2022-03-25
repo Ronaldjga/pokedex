@@ -85,6 +85,7 @@ export function PokemonTypes(props) {
                                                 className="w-full sm:w-2/3 z-10"
                                                 key={data.id}
                                                 src={data.sprites.front_default}
+                                                alt={data.id}
                                             />
                                             <TableRandom
                                                 pokemonName={data.name}
