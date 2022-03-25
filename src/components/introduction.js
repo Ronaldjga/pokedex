@@ -5,7 +5,7 @@ import pokemonLogo from './img/pokemonLogo.svg'
 
 export function Introduction() {
     return (
-        <main className="w-full max-w-screen-xl mx-auto flex flex-col justify-center items-center py-10 gap-5">
+        <main className="w-full max-w-screen-xl mx-auto flex flex-col justify-center items-center py-10 gap-5 px-5">
             <div className="w-[200px] md:hidden relative">
                 <Image
                     layout="responsive"
