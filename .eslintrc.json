@@ -7,6 +7,6 @@
         "object": ["Object"],
         "area": ["Area"],
         "input[type=\"image\"]": ["InputImage"]
-      }],
+      }]
 }
 }
