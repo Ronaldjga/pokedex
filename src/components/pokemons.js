@@ -82,7 +82,9 @@ export function PokemonsBanner() {
                             />
                             <TableRandom
                                 pokemonName={data.name}
-                                pokemonType={pokemonType}
+                                pokemonTypes={data.types}
+                                pokemonTypeOne={data.types[0].type.name}
+                                pokemonTypeTwo={data.types.length > 1 ? data.types[1].type.name : ''}
                                 height={`${Math.round(data.height * 10)} cm`}
                                 weight={`${Math.round(data.weight / 10)} kg`}
                                 baseExp={data.base_experience}

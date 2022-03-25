@@ -1,6 +1,6 @@
 import react, { useState } from "react";
 import axios from "axios";
-import { Table } from "./table";
+import { Table, TableRandom } from "./table";
 
 export function FormPokemon() {
     const [pokemon, setPokemon] = react.useState('pikachu');
@@ -62,8 +62,11 @@ export function FormPokemon() {
                                 key={data.id}
                                 src={data.sprites.front_default}
                             />
-                            <Table
-                                pokemonType={pokemonType}
+                            <TableRandom
+                                pokemonName={data.name}
+                                pokemonTypes={data.types}
+                                pokemonTypeOne={data.types[0].type.name}
+                                pokemonTypeTwo={data.types.length > 1 ? data.types[1].type.name : ''}
                                 height={`${Math.round(data.height * 10)} cm`}
                                 weight={`${Math.round(data.weight / 10)} kg`}
                                 baseExp={data.base_experience}
