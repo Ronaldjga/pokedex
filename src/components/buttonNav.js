@@ -217,7 +217,7 @@ export function MenuMobile(props) {
     return (
         <div className="absolute top-0 left-0 z-50">
             <button
-                className={`${props.className} bg-yellowPrimary fixed z-50 right-5 top-5 font-bold
+                className={`${props.className} h-[70px] w-[70px] rounded-full fixed z-50 right-5 top-5 font-bold
             
                 sm:right-9 sm:top-9
                 `}
@@ -235,7 +235,7 @@ export function MenuMobile(props) {
                     }
                 }}
             >
-                <Image
+                <Image layout="fill"
                     src={handleMenu}
                 />
             </button>
