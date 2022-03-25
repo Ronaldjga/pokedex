@@ -4,14 +4,14 @@ import { useRouter } from "next/router";
 import pokemonLogo from "../components/img/pokemonLogo.svg"
 import { useEffect } from "react/cjs/react.production.min";
 
-import openPokeboll from '../components/img/openPokeboll.svg'
-import closePokeboll from '../components/img/closePokeboll.svg'
+import openPokeboll from './img/openPokeboll.svg'
+import closePokeboll from './img/closePokeboll.svg'
 
 export function NavHeader() {
     const [menuButton, setMenuButton] = react.useState(false)
     const [listStatus, setListStatus] = react.useState('hidden')
     const [buttonValue, setButtonValue] = react.useState('MENU')
-    const [menuStyle, setMenuStyle] = react.useState('')
+    
 
 
     return (
