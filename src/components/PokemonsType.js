@@ -84,7 +84,7 @@ export function PokemonTypes(props) {
                                             <img
                                                 className="w-full sm:w-2/3 z-10"
                                                 key={data.id}
-                                                src={data.sprites.front_default}
+                                                src={data.sprites.other['official-artwork'].front_default}
                                                 alt={data.id}
                                             />
                                             <TableRandom
@@ -96,6 +96,7 @@ export function PokemonTypes(props) {
                                                 weight={`${Math.round(data.weight / 10)} kg`}
                                                 baseExp={data.base_experience}
                                             />
+                                            {console.log(data.sprites.other['official-artwork'].front_default)}
                                         </div>
                         )
                                 })}
