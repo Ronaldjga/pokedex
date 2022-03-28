@@ -7,5 +7,5 @@
     <br> <br>
     <span><img width="20" src="./src/components/img/closePokeboll.svg"/><a href="https://pokeapi.co/">PokeAPI</a>;</span>
     <br> <br>
-    <span><img width="20" src="./src/components/img/closePokeboll.svg"/>Mobile: <img width="20" src="./src/components/img/pokemonMobile.gif"/>;</span>
+    <span><img src="./src/components/img/closePokeboll.svg"/>Mobile: <img width="20" src="./src/components/img/pokemonMobile.gif"/>;</span>
 </p>
