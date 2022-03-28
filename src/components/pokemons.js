@@ -78,7 +78,7 @@ export function PokemonsBanner() {
                     return (
                         <div
                             key={keyIndex}
-                            className="w-full md:w-5/6 flex flex-col sm:flex-row justify-center items-center p-2 mx-auto bg-gray-900 relative text-white border-2 rounded-md border-pink-900">
+                            className="w-full md:w-5/6 flex flex-col sm:flex-row justify-center items-center p-2 mx-auto bg-gray-900 relative text-white border-2 rounded-md border-pink-900 gap-2">
                             <img
                                 className="w-full sm:w-2/4 z-10"
                                 key={data.id}
