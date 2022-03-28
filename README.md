@@ -1,3 +1,3 @@
 # pokedex
 
-<img src="./src/components/pokedexBg.png"/>
+<img src="./src/components/img/pokedexBg.png"/>
