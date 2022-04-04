@@ -37,9 +37,9 @@
 ## Tecnologias
 
 <p align="center">
-    <img src="https://github.com/Ronaldjga/Ronaldjga/blob/main/img/reactjsBanner.png?raw=true"/>
-    <img src="https://github.com/Ronaldjga/Ronaldjga/blob/main/img/nextjsBanner.png?raw=true"/>
-    <img src="https://github.com/Ronaldjga/Ronaldjga/blob/main/img/tailwindBanner.png?raw=true"/>
+    <img src="https://github.com/Ronaldjga/Ronaldjga/raw/main/img/reactjsBanner.png"/>
+    <img src="https://github.com/Ronaldjga/Ronaldjga/raw/main/img/nextjsBanner.png"/>
+    <img src="https://github.com/Ronaldjga/Ronaldjga/raw/main/img/tailwindBanner.png"/>
     <img src="https://github.com/Ronaldjga/Ronaldjga/raw/main/img/figmaBanner.png"/>
     <img src="https://github.com/Ronaldjga/Ronaldjga/raw/main/img/githubBanner.png"/>
     <img src="https://github.com/Ronaldjga/Ronaldjga/raw/main/img/gitBanner.png"/>
