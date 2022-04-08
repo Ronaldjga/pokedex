@@ -1,13 +1,10 @@
 import react, { useState } from "react";
 import axios from "axios";
 import { TableRandom } from "./table";
+import Image from 'next/image'
 
 export function PokemonsBanner() {
     const [pokemonData, setPokemonData] = react.useState([])
-    const [pokemonType, setPokemonType] = react.useState('')
-    const [keyIndex, setKeyIndex] = react.useState(0)
-    
-    const [whatPokemon, setWhatPokemon] = react.useState('')
     
     const toArray = []
 
@@ -22,25 +19,17 @@ export function PokemonsBanner() {
         axios.get(`https://pokeapi.co/api/v2/pokemon?limit=927&offset=200`)
             .then(res => {
                 toArray.push(res.data.results[randomIndice].name)
-                console.log(toArray)
-
                 const toArrayGetPokemon = [];
                 axios.get(`https://pokeapi.co/api/v2/pokemon/${toArray}`)
                     .then(res => {
                         toArrayGetPokemon.push(res.data);
-                        setPokemonType(res.data.types[0].type.name);
+                        
                         setPokemonData(toArrayGetPokemon);
-                        console.log(res)
+                        //console.log(res)
                     })
                     .catch(e => {
                         console.log(e)
                     })
-
-                // toArray.push(res.data.results[randomIndice].name)
-                // console.log(toArray)
-                // console.log(whatPokemon)
-                // setWhatPokemon(toArray.toString())
-                // getPokemon(whatPokemon)
             })
             .catch(e => {
                 console.log(e)
@@ -50,10 +39,7 @@ export function PokemonsBanner() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setKeyIndex(keyIndex + 1)
-        
         getRandomPokemon()
-        //getPokemon(whatPokemon)
     }
 
     return (
@@ -74,17 +60,26 @@ export function PokemonsBanner() {
                         Gerar
                     </button>
                 </form>
-                {pokemonData.map((data) => {
+                {pokemonData.map((data, key) => {
                     return (
                         <div
-                            key={keyIndex}
+                            key={key}
                             className="w-full md:w-5/6 flex flex-col sm:flex-row justify-center items-center p-2 mx-auto bg-gray-900 relative text-white border-2 rounded-md border-pink-900 gap-2">
-                            <img
-                                className="w-full sm:w-2/4 z-10"
-                                key={data.id}
-                                src={data.sprites.other['official-artwork'].front_default}
-                                alt={data.id}
-                            />
+                            {data.sprites.other['official-artwork'].front_default
+                                ? (
+                                    < div className="w-full sm:h-full sm:w-2/4 z-10 relative">
+                                        <Image
+                                            layout="responsive"
+                                            width={'100%'}
+                                            height={'100%'}
+                                            key={data.id}
+                                            src={data.sprites.other['official-artwork'].front_default}
+                                            alt={data.id}
+                                            priority
+                                        />
+                                    </div>
+                                ) 
+                                :(null)}
                             <TableRandom
                                 pokemonName={data.name}
                                 pokemonTypes={data.types}

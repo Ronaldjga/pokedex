@@ -6,7 +6,7 @@ export function TableRandom(props) {
     
 
     return (
-        <table className="border-collapse w-full flex justify-center items-center z-10">
+        <table className="border-collapse w-full sm:w-2/4 flex justify-center items-center z-10">
             <thead className="h-full w-full flex flex-col justify-center items-center gap-3">
                 <tr className="text-center lg:text-3xl font-bold">
                     <th>{props.pokemonName.toUpperCase()}</th>
@@ -57,8 +57,6 @@ function TRow(props) {
 }
 
 function TRowType(props) {
-    const [typeColor, setTypeColor] = react.useState('')
-    const [displayType, setDisplayType] = react.useState('')
 
     return (
         <>
