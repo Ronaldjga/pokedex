@@ -3,6 +3,7 @@ import axios from "axios";
 import { TablePokemonTypes } from "./table";
 import { useRouter } from "next/router";
 import Image from 'next/image'
+import Link from "next/link";
 
 export function PokemonTypes(props) {
     const [pokemonTypeOne, setPokemonTypeOne] = react.useState('')
@@ -76,34 +77,35 @@ export function PokemonTypes(props) {
                         } else if (val.name.toLowerCase().includes(seachPokemon.toLowerCase())) {
                             return val
                         }
-                    }).map((data) => {
+                    }).map((data, key) => {
                         return (
-                            <div
-                                key={data.id}
-                                className="w-full flex flex-col justify-center items-center p-4 mx-auto bg-gray-900 relative text-white border-b-2 border-l-2 border-r-2 rounded-xl border-yellowPrimary ">
-                                {data.sprites.other['official-artwork'].front_default
-                                    ? (
-                                        <div className="w-[200px] h-[200px] relative">
-                                            <Image
-                                                className="w-full sm:w-2/3 z-10"
-                                                layout="fill"
-                                                key={data.id}
-                                                src={data.sprites.other['official-artwork'].front_default}
-                                                alt={data.id}
-                                            />
-                                        </div>
-                                    )
-                                    : (null)}
-                                <TablePokemonTypes
-                                    pokemonName={data.name}
-                                    pokemonTypes={data.types}
-                                    pokemonTypeOne={data.types[0].type.name}
-                                    pokemonTypeTwo={data.types.length > 1 ? data.types[1].type.name : ''}
-                                    height={`${Math.round(data.height * 10)} cm`}
-                                    weight={`${Math.round(data.weight / 10)} kg`}
-                                    baseExp={data.base_experience}
-                                />
-                            </div>
+                            <Link href={`/pokePage?pokemon=${data.name}`} key={key}>
+                                <div
+                                    className="w-full flex flex-col justify-center items-center p-4 mx-auto bg-gray-900 relative text-white border-b-2 border-l-2 border-r-2 rounded-xl border-yellowPrimary cursor-pointer">
+                                    {data.sprites.other['official-artwork'].front_default
+                                        ? (
+                                            <div className="w-[200px] h-[200px] relative">
+                                                <Image
+                                                    className="w-full sm:w-2/3 z-10"
+                                                    layout="fill"
+                                                    key={data.id}
+                                                    src={data.sprites.other['official-artwork'].front_default}
+                                                    alt={data.id}
+                                                />
+                                            </div>
+                                        )
+                                        : (null)}
+                                    <TablePokemonTypes
+                                        pokemonName={data.name}
+                                        pokemonTypes={data.types}
+                                        pokemonTypeOne={data.types[0].type.name}
+                                        pokemonTypeTwo={data.types.length > 1 ? data.types[1].type.name : ''}
+                                        height={`${Math.round(data.height * 10)} cm`}
+                                        weight={`${Math.round(data.weight / 10)} kg`}
+                                        baseExp={data.base_experience}
+                                    />
+                                </div>
+                            </Link>
                         )
                     })}
                 </div>

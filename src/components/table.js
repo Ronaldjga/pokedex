@@ -33,6 +33,54 @@ export function TableRandom(props) {
         </table>
     )
 }
+export function TablePokePage(props) {
+    
+
+    return (
+        <table className="border-collapse w-full sm:min-w-[300px] md:w-2/3 md:order-1 order-2 lg:w-1/4 flex justify-center items-center z-10">
+            <thead className="h-full w-full flex flex-col justify-center items-center gap-3">
+                <TRowType
+                    thValue="Tipo:"
+                    tdTypes={props.pokemonTypes}
+                    tdValueOne={props.pokemonTypeOne}
+                    tdValueTwo={props.pokemonTypeTwo}
+                />
+                <TRow
+                    thValue="Altura"
+                    tdValue={props.height}
+                />
+                <TRow
+                    thValue="Peso"
+                    tdValue={props.weight}
+                />
+                <TRow
+                    thValue="Experiencia Base"
+                    tdValue={props.baseExp}
+                />
+            </thead>
+        </table>
+    )
+}
+
+export function TablePokePageSecond(props) {
+    
+
+    return (
+        <table className="border-collapse w-full sm:min-w-[300px] md:w-2/3 md:order-3 order-3 lg:w-1/4 flex justify-center items-center z-10">
+            <thead className="h-full w-full flex flex-col justify-center items-center gap-3">
+                {props.stats.map((data, key) => {
+                    return (
+                        <TRow
+                            key={key}
+                            thValue={data.stat.name}
+                            tdValue={data.base_stat}
+                        />
+                    )
+                })}
+            </thead>
+        </table>
+    )
+}
 
 export function TablePokemonTypes(props) {
     
@@ -70,7 +118,7 @@ export function TablePokemonTypes(props) {
 function TRow(props) { 
     return (
         <>
-            <tr
+            <tr 
                 className={trStyle}
             >
                 <th

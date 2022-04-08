@@ -27,7 +27,7 @@ export function NavHeader() {
                     />
                 </div>
                 <nav className="w-5/6 md:w-3/6">
-                    <ul className={`flex flex-wrap justify-center items-center gap-2 text-white`}>
+                    <ul className={`flex flex-wrap justify-center items-center gap-x-2 gap-y-5 text-white`}>
                         <li>
                             <ButtonNav
                                 href="fire"
@@ -198,15 +198,13 @@ export function ButtonNav(props) {
     }
 
     return (
-        <button
-            className={`${colorType()} bg-gray-900 py-1 rounded-xl px-5 border-2 hover:font-bold hover:border-white`}
-            onClick={(e) => {
-                e.preventDefault
-                router.push(`/pokemonType?type=${props.href}`)
-            }}
+        <Link
+            href={`/pokemonType?type=${props.href}`}
         >
-            {props.value}
-        </button>
+            <a className={`${colorType()} bg-gray-900 py-1 rounded-xl px-5 border-2 hover:font-bold hover:border-white`}>
+                {props.value}
+            </a>
+        </Link>
     )
 }
 
