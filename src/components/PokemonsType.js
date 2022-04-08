@@ -1,13 +1,10 @@
 import react, { useState } from "react";
-import { useEffect } from "react/cjs/react.production.min";
 import axios from "axios";
-import { TableRandom } from "./table";
+import { TablePokemonTypes } from "./table";
 import { useRouter } from "next/router";
 import Image from 'next/image'
-import nextConfig from "../../next.config";
 
 export function PokemonTypes(props) {
-    const [pokemons, setPokemons] = react.useState([])
     const [pokemonTypeOne, setPokemonTypeOne] = react.useState('')
     const [seachPokemon, setSeachPokemon] = react.useState('')
 
@@ -18,8 +15,6 @@ export function PokemonTypes(props) {
     const type = router.query.type
 
     const toArray = []
-    const pegaNome = []
-    const allPokemons = [pokemonData]
 
     react.useEffect(() => {
         if (type) {
@@ -48,7 +43,6 @@ export function PokemonTypes(props) {
                                 .catch(e => {
                                     console.log(e)
                                 })
-                            //console.log(url.pokemon.url) url de cada um
                         })
                     })
 
@@ -100,7 +94,7 @@ export function PokemonTypes(props) {
                                         </div>
                                     )
                                     : (null)}
-                                <TableRandom
+                                <TablePokemonTypes
                                     pokemonName={data.name}
                                     pokemonTypes={data.types}
                                     pokemonTypeOne={data.types[0].type.name}
