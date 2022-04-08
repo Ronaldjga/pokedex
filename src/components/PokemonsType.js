@@ -2,6 +2,7 @@ import react, { useState } from "react";
 import { useEffect } from "react/cjs/react.production.min";
 import axios from "axios";
 import { TableRandom } from "./table";
+import { useRouter } from "next/router";
 
 export function PokemonTypes(props) {
     const [pokemons, setPokemons] = react.useState([])
@@ -9,6 +10,9 @@ export function PokemonTypes(props) {
     
     const [pokemonData, setPokemonData] = react.useState([])
     const [start, setStart] = react.useState(0)
+
+    const router = useRouter();
+    const type = router.query.type
     
     const toArray = []
     const pegaNome = []
@@ -22,7 +26,7 @@ export function PokemonTypes(props) {
     const getPokemons = async () => {
         if (start === 0) {
             setStart(2)
-            await axios.get(`https://pokeapi.co/api/v2/type/${props.type}`)
+            await axios.get(`https://pokeapi.co/api/v2/type/${type}`)
                 .then(res => {
                     toArray.push(res.data.pokemon)
                     toArray.forEach((pokeObj, i) => {
@@ -49,26 +53,6 @@ export function PokemonTypes(props) {
             
         } else return
     }
-
-    // const getOnePokemon = () => {
-    //     const toArrayGetPokemon = [];
-    //     axios.get(`https://pokeapi.co/api/v2/pokemon/ditto`)
-    //         .then(res => {
-    //             toArrayGetPokemon.push(res.data);
-    //             setPokemonType(res.data.types[0].type.name);
-    //             setPokemonData(toArrayGetPokemon);
-    //             console.log(res)
-    //         })
-    //         .catch(e => {
-    //         console.log(e)
-    //         })
-        
-                
-            
-                
-    // }
-
-
 
     return (
         <section className="w-full">

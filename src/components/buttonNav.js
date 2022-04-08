@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import pokemonLogo from "../components/img/pokemonLogo.svg"
 import { useEffect } from "react/cjs/react.production.min";
+import Link from "next/link";
 
 import openPokeboll from './img/pokebolaAberta.svg'
 import closePokeboll from './img/closePokeboll.svg'
@@ -29,109 +30,109 @@ export function NavHeader() {
                     <ul className={`flex flex-wrap justify-center items-center gap-2 text-white`}>
                         <li>
                             <ButtonNav
-                                href="fireType"
+                                href="fire"
                                 value="Fire"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="electricType"
+                                href="electric"
                                 value="Electric"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="grassType"
+                                href="grass"
                                 value="Grass"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="iceType"
+                                href="ice"
                                 value="Ice"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="normalType"
+                                href="normal"
                                 value="Normal"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="fairyType"
+                                href="fairy"
                                 value="Fairy"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="fightType"
+                                href="fighting"
                                 value="Fight"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="flyingType"
+                                href="flying"
                                 value="Flying"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="ghostType"
+                                href="ghost"
                                 value="Ghost"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="bugType"
+                                href="bug"
                                 value="Bug"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="groundType"
+                                href="ground"
                                 value="Ground"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="darkType"
+                                href="dark"
                                 value="Dark"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="dragonType"
+                                href="dragon"
                                 value="Dragon"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="poisonType"
+                                href="poison"
                                 value="Poison"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="psychicType"
+                                href="psychic"
                                 value="Psychic"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="waterType"
+                                href="water"
                                 value="Water"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="steelType"
+                                href="steel"
                                 value="Steel"
                             />
                         </li>
                         <li>
                             <ButtonNav
-                                href="rockType"
+                                href="rock"
                                 value="Rock"
                             />
                         </li>
@@ -201,7 +202,7 @@ export function ButtonNav(props) {
             className={`${colorType()} bg-gray-900 py-1 rounded-xl px-5 border-2 hover:font-bold hover:border-white`}
             onClick={(e) => {
                 e.preventDefault
-                router.push(`/${props.href}`)
+                router.push(`/pokemonType?type=${props.href}`)
             }}
         >
             {props.value}
