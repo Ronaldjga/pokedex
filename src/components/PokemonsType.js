@@ -3,6 +3,8 @@ import { useEffect } from "react/cjs/react.production.min";
 import axios from "axios";
 import { TableRandom } from "./table";
 import { useRouter } from "next/router";
+import Image from 'next/image'
+import nextConfig from "../../next.config";
 
 export function PokemonTypes(props) {
     const [pokemons, setPokemons] = react.useState([])
@@ -20,9 +22,12 @@ export function PokemonTypes(props) {
     const allPokemons = [pokemonData]
 
     react.useEffect(() => {
-
-        getPokemons()
-    }, [])
+        if (type) {
+            getPokemons()
+        } else {
+            return
+        }
+    }, [type])
 
     const getPokemons = async () => {
         if (start === 0) {
@@ -57,7 +62,7 @@ export function PokemonTypes(props) {
 
     return (
         <>
-            <div className="flex flex-col gap-10 max-w-screen-xl mx-auto px-2 py-10">
+            <div className="w-full flex flex-col gap-10 max-w-screen-xl mx-auto px-2 py-10">
                 <form className="min-w-max w-full max-w-screen-xl mx-auto">
                     <input
                         type={'text'}
@@ -82,12 +87,19 @@ export function PokemonTypes(props) {
                             <div
                                 key={data.id}
                                 className="w-full flex flex-col justify-center items-center p-4 mx-auto bg-gray-900 relative text-white border-b-2 border-l-2 border-r-2 rounded-xl border-yellowPrimary ">
-                                <img
-                                    className="w-full sm:w-2/3 z-10"
-                                    key={data.id}
-                                    src={data.sprites.other['official-artwork'].front_default}
-                                    alt={data.id}
-                                />
+                                {data.sprites.other['official-artwork'].front_default
+                                    ? (
+                                        <div className="w-[200px] h-[200px] relative">
+                                            <Image
+                                                className="w-full sm:w-2/3 z-10"
+                                                layout="fill"
+                                                key={data.id}
+                                                src={data.sprites.other['official-artwork'].front_default}
+                                                alt={data.id}
+                                            />
+                                        </div>
+                                    )
+                                    : (null)}
                                 <TableRandom
                                     pokemonName={data.name}
                                     pokemonTypes={data.types}
@@ -101,6 +113,7 @@ export function PokemonTypes(props) {
                         )
                     })}
                 </div>
+                
             </div>
         </>
     )
