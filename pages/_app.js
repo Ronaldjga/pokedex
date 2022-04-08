@@ -14,6 +14,7 @@ function GlobalStyle() {
         }
         /* App fit Height */ 
         html, body, #__next {
+          
           height: 100%;
           min-height: 100vh;
           display: flex;
