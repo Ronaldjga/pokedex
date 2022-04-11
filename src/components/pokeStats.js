@@ -22,7 +22,7 @@ export function PokeStats(props) {
             .then(res => {
                 toArray.push(res.data)
                 setPokemon(toArray)
-                console.log(res)
+                //console.log(res)
             })
             .catch(e => console.log(e))
     }

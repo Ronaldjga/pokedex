@@ -6,7 +6,7 @@ import { BackHome } from "../src/components/formReport";
 export default function PokemonTypePage() {
     return (
         <>
-            <section className="w-full flex flex-col bg-darkBluePrimary h-fit min-h-full">
+            <section className="w-full flex flex-col bg-darkBluePrimary h-fit min-h-full pt-16">
                 <PokemonTypes/>
                 <BackHome/>
             </section>
